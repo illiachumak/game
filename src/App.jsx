@@ -1,47 +1,17 @@
 import { Input as StrapInput } from "reactstrap";
 import React from "react";
 import styles from './App.module.scss';
+import { setPassword } from "./redux/slices/passwordSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
-  const [password, setPassword] = React.useState('')
-  const [strength, setStrength] = React.useState('EMPTY')
-  const [strengthText, setStrengthText] = React.useState('')
 
-
+  const dispatch = useDispatch();
+  const {password, strength, text :strengthText} = useSelector(state => state.password)
   const formId = React.useId();
 
-  const StrengthCheck = (e) => {
-    setPassword(e.target.value);
-    const password = e.target.value;
-  
-    if (password.length === 0) {
-      setStrengthText('')
-      setStrength('EMPTY')
-      return
-    } else if (password.length < 8) {
-     setStrength('TOO_SHORT')
-     setStrengthText('password must be at least 8 charachters!')
-     return
-    }
-  
-    const hasLetters = /[a-z]/i.test(password);
-    const hasNumbers = /\d/.test(password);
-    const hasSymbols = /[^a-z\d]/i.test(password);
-  
-    if (hasLetters && hasNumbers && hasSymbols) {
-      setStrength('STRONG')
-      setStrengthText('strong')
-      return
-    } else if ((hasLetters && hasSymbols) || (hasLetters && hasNumbers) || (hasNumbers && hasSymbols)) {
-      setStrength('MEDIUM')
-      setStrengthText('medium')
-      return
-      
-    } else {
-      setStrength('EASY')
-      setStrengthText('easy')
-      return
-    }
+  const handleChange = (e) => {
+    dispatch(setPassword(e.target.value))
   }
   
 
@@ -66,7 +36,7 @@ function App() {
                       placeholder="Password"
                       name="password"
                       value={password}
-                      onChange={StrengthCheck}
+                      onChange={handleChange}
                       className={`${styles.input}`}
                     />
                     
