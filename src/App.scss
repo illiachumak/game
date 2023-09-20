@@ -1,7 +1,6 @@
 .grid {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
 }
   
 .grid-row {
@@ -39,3 +38,28 @@ select {
     padding: 7px 10px;
     border-radius: 15px;
 }
+
+.grid-container {
+    margin-top: '20px';
+    width: '300px'; 
+    height: '300px'; 
+    overflow: 'auto';
+  }
+  
+  table {
+    color: #1f1f1f;
+    margin-top: 20px;
+    width: 50%;
+    border-collapse: collapse;
+  
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  }
+  
