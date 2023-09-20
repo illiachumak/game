@@ -1,6 +1,12 @@
+*{
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 body {
   padding: 7rem 10rem;
-  background-color: #414141;
+  overflow: scroll;
+  background-color: #757575;
   font-family: 'Inter', sans-serif;
   color: white;
 }

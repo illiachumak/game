@@ -1,0 +1,41 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+  
+.grid-row {
+    display: flex;
+}
+  
+.square {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ddd;
+}
+  
+.square.blue {
+    background-color: blue;
+}
+
+.start-btn{
+    
+  margin-left: 20px; 
+  background: #1f1f1f; 
+  padding: 7px 10px;
+  border-radius: 15px;
+  outline: 0px solid #1f1f1f;
+  &:hover{
+    outline: 2px solid #1f1f1f;
+    outline-offset: 2px;
+    background: transparent;
+    transition: all 0.3s ease-out;
+  }
+}  
+select {
+    background-color: #1f1f1f;
+    color: white;
+    border: 1px solid #1f1f1f;
+    padding: 7px 10px;
+    border-radius: 15px;
+}
