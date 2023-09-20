@@ -56,10 +56,17 @@ function App() {
   return (
     <div className="App">
       <select onChange={e => {
-        setSelectedMode(modes.find(mode => mode.id === e.target.value))
-        setHoveredSquares([]); 
+        if (e.target.value === "") {
+            setSelectedMode(null);
+            setHoveredSquares([]);
+            setGrid([]);
+            setGridSize(0);
+        } else {
+            setSelectedMode(modes.find(mode => mode.id === e.target.value));
+            setHoveredSquares([]);
+        }
       }}>
-        <option>Pick a mode</option>
+        <option value=''>Pick a mode</option>
         {modes.map(mode => <option key={mode.id} value={mode.id}>{mode.name}</option>)}
       </select>
       <button onClick={handleStart} className='start-btn'>START</button>
